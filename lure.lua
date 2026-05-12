@@ -1,55 +1,44 @@
--- SETTINGS --
+return function(CONFIG)
+
 math.randomseed(os.time())
-local BOOSTER_NAME     = "LureBooster"
-local WORKER_LIMIT     = 35
-local BASE_SHIFT       = 77
-local DISCORD_HOOK     = "YOUR_WEBHOOK"
-local REPORT_INTERVAL  = 300000
-local STORAGE_POINTS = {
 
-    "KBOG:STEAL",
-    "KBOG:STEAL1",
-    "KBOG:STEAL2",
-    "KBOG:STEAL3",
-    "KBOG:STEAL4",
-    "KBOG:STEAL5",
-    "KBOG:STEAL6",
-    "KBOG:STEAL7",
-    "KBOG:STEAL8",
-    "KBOG:STEAL9",
-    "KBOG:STEAL10",
-}
-local TARGET_ITEMS = {
+--------------------------------------------------
+-- SETTINGS FROM EXECUTOR
+--------------------------------------------------
 
-    2462,2463,2464,2465,2466,
-    2467,2468,2469,2470,2471,
-    2472,2473,2474,2475,2476,
-    2477,2478,2479,2480,2481,
-    2482,3353,3774,4561,4585,
-}
+local BOOSTER_NAME     = CONFIG.BOOSTER_NAME
+local WORKER_LIMIT     = CONFIG.WORKER_LIMIT
+local BASE_SHIFT       = CONFIG.BASE_SHIFT
+local DISCORD_HOOK     = CONFIG.DISCORD_HOOK
+local REPORT_INTERVAL  = CONFIG.REPORT_INTERVAL
 
+local STORAGE_POINTS   = CONFIG.STORAGE_POINTS
+local TARGET_ITEMS     = CONFIG.TARGET_ITEMS
 
+--------------------------------------------------
+-- INTERNAL
+--------------------------------------------------
 
 local CURRENT_STORAGE = 1
-local SHIFT_INTERVAL   = 100
-local MIN_SHIFT        = 1
-local BOOSTER_COST     = 100
+local SHIFT_INTERVAL  = 100
+local MIN_SHIFT       = 1
+local BOOSTER_COST    = 100
+
 --------------------------------------------------
 -- SPEED
 --------------------------------------------------
 
-local STEP_DELAY       = 130
-local RELEASE_DELAY    = 150
-local PURCHASE_DELAY   = 120
-local TRANSIT_DELAY    = 300
+local STEP_DELAY      = 130
+local RELEASE_DELAY   = 150
+local PURCHASE_DELAY  = 120
+local TRANSIT_DELAY   = 300
 
+local SPAWN_INTERVAL  = 900
+local LOOP_INTERVAL   = 1200
+local RETRY_DELAY     = 1500
 
-local SPAWN_INTERVAL   = 900
-local LOOP_INTERVAL    = 1200
-local RETRY_DELAY      = 1500
-
-local TRAIN_TIMEOUT    = 80000
-local TRANSIT_TIMEOUT  = 25000
+local TRAIN_TIMEOUT   = 80000
+local TRANSIT_TIMEOUT = 25000
 
 local totalPurchased   = 0
 local totalReleased    = 0
