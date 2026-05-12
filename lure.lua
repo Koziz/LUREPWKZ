@@ -1,4 +1,4 @@
-return function(CONFIG)
+local CONFIG = ...
 
 math.randomseed(os.time())
 
