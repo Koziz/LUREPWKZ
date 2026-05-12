@@ -1,4 +1,5 @@
-local CONFIG = ...
+local CONFIG =
+_G.LURE_CONFIG
 
 math.randomseed(os.time())
 
